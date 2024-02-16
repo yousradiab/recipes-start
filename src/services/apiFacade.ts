@@ -1,7 +1,7 @@
-const SERVER_URL = "http://localhost:8000";
-const CATEGORIES_URL = SERVER_URL + "/categories/";
-const RECIPE_URL = SERVER_URL + "/recipes/";
-const INFO_URL = SERVER_URL + "/info/";
+import { API_URL } from "../settings";
+const CATEGORIES_URL = API_URL + "/categories";
+const RECIPE_URL = API_URL + "/recipes";
+const INFO_URL = API_URL + "/info";
 
 interface Recipe {
   id: number | null;
