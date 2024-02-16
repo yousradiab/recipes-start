@@ -53,7 +53,7 @@ async function addRecipe(newRecipe: Recipe): Promise<Recipe> {
 
 async function deleteRecipe(id: number): Promise<Recipe> {
   const options = makeOptions("DELETE", null);
-  const recipe = await fetch(RECIPE_URL + id, options).then((res) => res.json());
+  const recipe = await fetch(`${RECIPE_URL}/${id}`, options).then((res) => res.json());
   return recipe;
 }
 
