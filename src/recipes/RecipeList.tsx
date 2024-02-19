@@ -9,10 +9,14 @@ export default function RecipeList() {
   const initialCategory = queryString.get("category");
   const [recipes, setRecipes] = useState<Array<APIRecipe>>([]);
   const [category, setCategory] = useState<string | null>(initialCategory);
+  const [error, setError] = useState("");
   //const auth = useAuth();
 
   useEffect(() => {
-    getRecipes(category).then((res) => setRecipes(res));
+    getRecipes(category)
+    .then((res) => setRecipes(res))
+    .catch(() => setError("Error fetching recipes, is the server running?"));
+
   }, [category]);
 
   const recipeListItems = recipes.map((recipe) => {
@@ -25,6 +29,9 @@ export default function RecipeList() {
     );
   });
 
+  if(error!==""){
+    return <h2 style={{color:"red"}}>{error}</h2>
+  }
   return (
     <>
       <h3>Recipes</h3>

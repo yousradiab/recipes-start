@@ -1,20 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import { Categories } from "./recipes/Categories";
-import RecipesLayout from "./recipes/RecipesLayout";
 import Recipe from "./recipes/Recipe";
 import Recipes from "./recipes/RecipeList";
 import RecipeForm from "./recipes/RecipeForm";
 import Login from "./security/Login";
 //import Logout from "./security/_Logout";
-import NavHeader from "./NavHeader";
+import Layout from "./Layout";
 import Home from "./Home";
 import "./App.css";
 
 export default function App() {
   //const auth = useAuth();
   return (
-    <>
-      <NavHeader />
+    <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories/" element={<Categories />} />
@@ -26,6 +24,6 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         {/* <Route path="/logout" element={<Logout />} /> */}
       </Routes>
-    </>
+    </Layout>
   );
 }
