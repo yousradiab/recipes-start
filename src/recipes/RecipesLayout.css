@@ -10,9 +10,10 @@
 }
 
 .outlet-container {
-  border: 2px solid silver;
-  background-color: lightsteelblue;
-  border-radius: 10px;
+  border: 0px solid rgb(230, 220, 220);
+  background-color: rgb(243, 245, 248);
+  border-radius: 7px;
+  width: 500px;
   flex: 4;
   flex-direction: column;
   margin: 20px;
