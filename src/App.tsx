@@ -10,6 +10,7 @@ import { useAuth } from "./security/AuthProvider";
 import "./App.css";
 import RecipesLayout from "./recipes/RecipesLayout";
 import RequireAuth from "./security/RequireAuth";
+import CategoryForm from "./recipes/CategoryForm";
 
 export default function App() {
   const auth = useAuth();
@@ -17,20 +18,30 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/info" element={<Home />} />
         <Route path="/categories/" element={<Categories />} />
         <Route path="/recipes" element={<RecipesLayout />}>
           <Route path=":id" element={<Recipe />} />
         </Route>
+
+        <Route
+          path="/addcategories"
+          element={
+            <RequireAuth roles={["ADMIN"]}>
+              <CategoryForm />
+            </RequireAuth>
+          }
+        />
+
         <Route
           path="/add"
           element={
-            <RequireAuth roles = {["ADMIN"]}>
+            <RequireAuth roles={["USER"]}>
               <RecipeForm />
             </RequireAuth>
           }
         />
         <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<h2>Contact</h2>} />
         <Route path="*" element={<h2>Not Found</h2>} />
         <Route path="/logout" element={<Logout />} />
       </Routes>

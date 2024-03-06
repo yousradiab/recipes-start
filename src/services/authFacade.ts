@@ -1,5 +1,5 @@
 import { API_URL } from "../settings";
-import { makeOptions, handleHttpErrors } from "./fetchUtils";
+import { handleHttpErrors } from "./fetchUtils";
 const LOGIN_URL = API_URL + "/api/auth/login";
 
 export type User = { username: string; password: string; roles?: string[] };
@@ -18,7 +18,15 @@ interface LoginRequest {
 const authProvider = {
   isAuthenticated: false,
   signIn(user_: LoginRequest): Promise<LoginResponse> {
-    const options = makeOptions("POST", user_);
+    const options: RequestInit = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(user_),
+    };
+
     return fetch(LOGIN_URL, options).then(handleHttpErrors);
   },
 };
