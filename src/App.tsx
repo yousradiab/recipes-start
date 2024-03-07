@@ -21,11 +21,11 @@ export default function App() {
           <Route path="/recipes-start/info" element={<Home />} />
           <Route path="/recipes-start/categories/" element={<Categories />} />
           <Route path="/recipes-start/recipes" element={<RecipesLayout />}>
-            <Route path="recipes-start/:id" element={<Recipe />} />
+            <Route path="/recipes-start/:id" element={<Recipe />} />
           </Route>
 
           <Route
-            path="recipes-start/addcategory"
+            path="/recipes-start/addcategory"
             element={
               <RequireAuth roles={["ADMIN"]}>
                 <CategoryForm />
@@ -34,7 +34,7 @@ export default function App() {
           />
 
           <Route
-            path="recipes-start/add"
+            path="/recipes-start/add"
             element={
               <RequireAuth roles={["USER"]}>
                 <RecipeForm />
