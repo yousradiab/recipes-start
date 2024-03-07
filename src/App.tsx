@@ -16,11 +16,10 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/recipes-start" element={<Home />} />
         <Route path="/info" element={<Home />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/" element={<Categories />} />
         <Route path="/recipes" element={<RecipesLayout />}>
-          <Route path="/:id" element={<Recipe />} />
+          <Route path=":id" element={<Recipe />} />
         </Route>
 
         <Route
