@@ -13,39 +13,37 @@ import CategoryForm from "./recipes/CategoryForm";
 
 export default function App() {
   return (
-    
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/recipes-start" element={<Home />} />
-          <Route path="/recipes-start/info" element={<Home />} />
-          <Route path="/recipes-start/categories/" element={<Categories />} />
-          <Route path="/recipes-start/recipes" element={<RecipesLayout />}>
-            <Route path="/recipes-start/:id" element={<Recipe />} />
-          </Route>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/recipes-start" element={<Home />} />
+        <Route path="/info" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/recipes" element={<RecipesLayout />}>
+          <Route path="/:id" element={<Recipe />} />
+        </Route>
 
-          <Route
-            path="/recipes-start/addcategory"
-            element={
-              <RequireAuth roles={["ADMIN"]}>
-                <CategoryForm />
-              </RequireAuth>
-            }
-          />
+        <Route
+          path="recipes-start/addcategory"
+          element={
+            <RequireAuth roles={["ADMIN"]}>
+              <CategoryForm />
+            </RequireAuth>
+          }
+        />
 
-          <Route
-            path="/recipes-start/add"
-            element={
-              <RequireAuth roles={["USER"]}>
-                <RecipeForm />
-              </RequireAuth>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<h2>Not Found</h2>} />
-          <Route path="/logout" element={<Logout />} />
-        </Routes>
-      </Layout>
-  
+        <Route
+          path="/add"
+          element={
+            <RequireAuth roles={["USER"]}>
+              <RecipeForm />
+            </RequireAuth>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<h2>Not Found</h2>} />
+        <Route path="/logout" element={<Logout />} />
+      </Routes>
+    </Layout>
   );
 }
