@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Categories } from "./recipes/Categories";
 import Recipe from "./recipes/Recipe";
@@ -7,14 +6,12 @@ import Login from "./security/Login";
 import Logout from "./security/Logout";
 import Layout from "./Layout";
 import Home from "./Home";
-import { useAuth } from "./security/AuthProvider";
 import "./App.css";
 import RecipesLayout from "./recipes/RecipesLayout";
 import RequireAuth from "./security/RequireAuth";
 import CategoryForm from "./recipes/CategoryForm";
 
 export default function App() {
-  const auth = useAuth();
   return (
     <Layout>
       <Routes>
