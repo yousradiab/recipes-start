@@ -18,15 +18,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/recipes-start" element={<Home />} />
-          <Route path="/info" element={<Home />} />
-          <Route path="/categories/" element={<Categories />} />
+          <Route path="/recipes-start/info" element={<Home />} />
           <Route path="/recipes-start/categories/" element={<Categories />} />
-          <Route path="/recipes" element={<RecipesLayout />}>
-            <Route path=":id" element={<Recipe />} />
+          <Route path="/recipes-start/recipes" element={<RecipesLayout />}>
+            <Route path="recipes-start/:id" element={<Recipe />} />
           </Route>
 
           <Route
-            path="/addcategories"
+            path="recipes-start/addcategory"
             element={
               <RequireAuth roles={["ADMIN"]}>
                 <CategoryForm />
@@ -35,7 +34,7 @@ export default function App() {
           />
 
           <Route
-            path="/add"
+            path="recipes-start/add"
             element={
               <RequireAuth roles={["USER"]}>
                 <RecipeForm />

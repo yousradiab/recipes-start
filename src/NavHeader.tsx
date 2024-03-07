@@ -8,16 +8,16 @@ export default function NavHeader() {
     <nav>
       <ul>
         <li>{<NavLink to="/">Home </NavLink>}</li>
-        <li>{<NavLink to="/categories">Categories</NavLink>}</li>
-        <li>{<NavLink to="/recipes">Recipes</NavLink>}</li>
+        <li>{<NavLink to="/recipes-start/categories">Categories</NavLink>}</li>
+        <li>{<NavLink to="/recipes-start/recipes">Recipes</NavLink>}</li>
         <li>
           {auth.isLoggedIn() && (
             <>
               <li>
-                <NavLink to="/add">Add</NavLink>
+                <NavLink to="/recipes-start/add">Add</NavLink>
               </li>
               <li>
-                <NavLink to="/addcategories">Add Category</NavLink>
+                <NavLink to="/recipes-start/addcategory">Add Category</NavLink>
               </li>
             </>
           )}
