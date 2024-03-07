@@ -24,7 +24,7 @@ export default function App() {
         </Route>
 
         <Route
-          path="recipes-start/addcategory"
+          path="/addcategory"
           element={
             <RequireAuth roles={["ADMIN"]}>
               <CategoryForm />
